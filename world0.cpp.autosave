@@ -1,0 +1,40 @@
+#include "world0.h"
+#include "icon.h"
+#include <iostream>
+#include <QMessageBox>
+
+
+void World1::initWorld(string mapFile)
+{
+    RPGObj obj1, obj2, obj3;
+
+    obj1.initObj("window1");
+    obj1.setPosX(4);
+    obj1.setPosY(3);
+
+    obj2.initObj("window2");
+    obj2.setPosX(15);
+    obj2.setPosY(17);
+
+    obj3.initObj("window3");
+    obj3.setPosX(23);
+    obj3.setPosY(4);
+
+    this->_objs.push_back(obj1);
+    this->_objs.push_back(obj2);
+    this->_objs.push_back(obj3);
+
+}
+
+void World1::show(QPainter * painter,int flag){
+    vector<RPGObj>::iterator it;
+    for(it=this->_objs.begin();it!=this->_objs.end();it++){
+        (*it).show(painter);
+    }
+    //painter->drawPixmap(rect(), QPixmap("://images/choose_role_bg.jpg"));
+    if(flag==0)
+        this->m_player.show(painter);
+    else
+        this->f_player.show(painter);
+   //this->_monster2.show(painter);
+}

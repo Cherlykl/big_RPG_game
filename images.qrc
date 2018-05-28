@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/choose_role_bg.jpg</file>
+        <file>images/female_player.png</file>
+        <file>images/male_player.png</file>
+        <file>images/place_choose_bg.jpg</file>
+        <file>images/blank_bg.PNG</file>
+        <file>images/welcome_bg.jpg</file>
+    </qresource>
+</RCC>
