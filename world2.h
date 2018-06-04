@@ -23,6 +23,7 @@ public:
          */
     void show(QPainter * painter);
     void handlePlayerMove(int direction, int steps);
+    void rebuildWorld();
 private:
     vector<RPGObj> _objs;
     Final_player myplayer;

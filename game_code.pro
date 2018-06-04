@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     female_player.cpp \
     final_player.cpp \
     world1.cpp \
-    world2.cpp
+    world2.cpp \
+    world3.cpp
 
 HEADERS  += mainwindow.h \
     icon.h \
@@ -31,7 +32,8 @@ HEADERS  += mainwindow.h \
     female_player.h \
     final_player.h \
     world1.h \
-    world2.h
+    world2.h \
+    world3.h
 
 FORMS    += mainwindow.ui
 

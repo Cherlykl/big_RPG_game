@@ -3,8 +3,20 @@
         <file>images/choose_role_bg.jpg</file>
         <file>images/female_player.png</file>
         <file>images/male_player.png</file>
-        <file>images/place_choose_bg.jpg</file>
-        <file>images/blank_bg.PNG</file>
         <file>images/welcome_bg.jpg</file>
+        <file>images/black_bg.jpg</file>
+        <file>images/buy_property_bg.jpg</file>
+        <file>images/TileB.png</file>
+        <file>images/property1.png</file>
+        <file>images/property7.png</file>
+        <file>images/property5.png</file>
+        <file>images/property4.png</file>
+        <file>images/property6.png</file>
+        <file>images/property3.png</file>
+        <file>images/property8.png</file>
+        <file>images/property9.png</file>
+        <file>images/property12.png</file>
+        <file>images/place_choose_bg.jpg</file>
+        <file>images/gate1_bg.png</file>
     </qresource>
 </RCC>

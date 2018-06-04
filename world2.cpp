@@ -2,35 +2,62 @@
 #include "icon.h"
 #include <iostream>
 #include <QMessageBox>
+#include <cstring>
+#include <stdio.h>
+#include <fstream>
 
 
 void World2::initWorld(string mapFile)
 {
-    myplayer.setPosX(1);
-    myplayer.setPosY(1);
+   // myplayer.setPosX(1);
+    //myplayer.setPosY(1);
 
-    RPGObj  obj2, obj3;
-
-    obj2.initObj("stone");
-    obj2.setPosX(15);
-    obj2.setPosY(17);
-
-    obj3.initObj("fruit");
-    obj3.setPosX(23);
-    obj3.setPosY(4);
-
-    //this->_objs.push_back(obj1);
-    this->_objs.push_back(obj2);
-    this->_objs.push_back(obj3);
-
+    string match_name;
+    int posx,posy;
+    RPGObj  obj;
+    ifstream infile(mapFile);
+    if(!infile.is_open())
+        cout<<"fail to open the file"<<endl;
+    while(!infile.eof())
+    {
+       infile>>match_name>>posx>>posy;
+       if(match_name=="finalplayer")
+       {
+           myplayer.setPosX(posx);
+           myplayer.setPosY(posy);
+       }
+       obj.initObj(match_name);
+       obj.setPosX(posx);
+       obj.setPosY(posy);
+       this->_objs.push_back(obj);
+       infile.get();
+       if(infile.peek()=='\n') break;
+    }
+    infile.close();
 }
+
+void World2::rebuildWorld()
+{
+    ofstream rebuildfile("C:\\Users\\lenovo\\Desktop\\coding_homework\\big_RPG_game\\game_code\\rebuilt_map.txt");
+    vector<RPGObj>::iterator it;
+    for(it=this->_objs.begin();it!=this->_objs.end();it++){
+        rebuildfile<<(*it).getObjType()<<" "<<(*it).getPosX()<<" "<<(*it).getPosY()<<endl;
+    }
+    rebuildfile<<"finalplayer"<<" "<<myplayer.getPosX()<<" "<<myplayer.getPosY()<<endl;
+    rebuildfile.close();
+
+    ofstream determinefile("C:\\Users\\lenovo\\Desktop\\coding_homework\\big_RPG_game\\game_code\\determine.txt");
+    int flag=1;
+    determinefile<<flag<<endl;
+    determinefile.close();
+}
+
 
 void World2::show(QPainter * painter){
     vector<RPGObj>::iterator it;
     for(it=this->_objs.begin();it!=this->_objs.end();it++){
         (*it).show(painter);
     }
-
     myplayer.setSIZE(20);
     myplayer.show(painter);
 }
@@ -39,7 +66,6 @@ void World2::handlePlayerMove(int direction, int steps){
 
     int flag1=0,flag2=0,flag3=0,flag4=0;
     vector<RPGObj>::iterator it;
-
 
     if(direction==1)
     {
