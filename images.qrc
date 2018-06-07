@@ -18,5 +18,22 @@
         <file>images/property12.png</file>
         <file>images/place_choose_bg.jpg</file>
         <file>images/gate1_bg.png</file>
+        <file>images/fairy.png</file>
+        <file>images/pa_run1.png</file>
+        <file>images/pa_run2.png</file>
+        <file>images/pa_stand.png</file>
+        <file>images/pd_run1.png</file>
+        <file>images/pd_run2.png</file>
+        <file>images/pd_stand.png</file>
+        <file>images/pdied.png</file>
+        <file>images/pl_fight.png</file>
+        <file>images/pr_fight.png</file>
+        <file>images/ps_run1.png</file>
+        <file>images/ps_run2.png</file>
+        <file>images/ps_stand.png</file>
+        <file>images/pw_run1.png</file>
+        <file>images/pw_run2.png</file>
+        <file>images/pw_stand.png</file>
+        <file>images/map.jpg</file>
     </qresource>
 </RCC>

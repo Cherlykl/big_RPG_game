@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     final_player.cpp \
     world1.cpp \
     world2.cpp \
-    world3.cpp
+    world3.cpp \
+    fairy.cpp
 
 HEADERS  += mainwindow.h \
     icon.h \
@@ -33,7 +34,8 @@ HEADERS  += mainwindow.h \
     final_player.h \
     world1.h \
     world2.h \
-    world3.h
+    world3.h \
+    fairy.h
 
 FORMS    += mainwindow.ui
 

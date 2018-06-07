@@ -8,7 +8,7 @@ class World1
 public:
     World1(){}
     virtual ~World1(){}
-    void show(QPainter * painter,int flag);
+    void show(QPainter * painter,int sex,int i);
 private:
      Male_player m_player;
      Female_player f_player;

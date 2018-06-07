@@ -8,6 +8,7 @@
 #include "female_player.h"
 #include "final_player.h"
 #include "world1.h"
+#include "fairy.h"
 
 class World2 : public World1
 {
@@ -21,12 +22,13 @@ public:
            stone 3 3
            fruit 7 8
          */
-    void show(QPainter * painter);
+    void show(QPainter * painter, int i);
     void handlePlayerMove(int direction, int steps);
     void rebuildWorld();
 private:
     vector<RPGObj> _objs;
     Final_player myplayer;
+    Fairy enemy_fairy[15];
 };
 
 #endif // WORLD2_H

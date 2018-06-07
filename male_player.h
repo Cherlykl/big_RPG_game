@@ -10,7 +10,7 @@ class Male_player:virtual public Player
 public:
     Male_player(){}
     ~Male_player(){}
-    void show(QPainter * painter);
+    void show(QPainter * painter, int i);
 };
 
 #endif // MALE_PLAYER_H

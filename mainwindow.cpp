@@ -4,6 +4,8 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <QTime>
+#include <ctime>
 using namespace std;
 
 int MainWindow::Mi0 = 0;
@@ -22,6 +24,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    timer2 = new QTimer(this);
+    connect(timer2,SIGNAL(timeout()),this,SLOT(showworld1()));
+    connect(timer2,SIGNAL(timeout()),this,SLOT(showworld2()));
+    timer2->start(100);
+
     ifstream infile(determine_File);
     int flag;
     while(!infile.eof())
@@ -53,6 +61,7 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete timer2;
 }
 
 void MainWindow::paintEvent(QPaintEvent *e){
@@ -70,10 +79,9 @@ void MainWindow::paintEvent(QPaintEvent *e){
             ui->pushButton_2->show();
             flag++;
         }
-        if(Mi1%2==0)
-            role_choose_mode.show(pa,0);
-        else
-            role_choose_mode.show(pa,1);
+
+
+                role_choose_mode.show(pa,Mi1,personi);
     }
     if(Mi2==1){
         static int flag1=0;
@@ -92,15 +100,12 @@ void MainWindow::paintEvent(QPaintEvent *e){
     if(Mi6==1)
     {
         ui->pushButton_17->hide();
-        painter.drawPixmap(rect(), QPixmap("://images/black_bg.jpg"));
-        play_mode.show(pa);
+        painter.drawPixmap(rect(), QPixmap("://images/map.jpg"));
+        play_mode.show(pa,movei);
         ui->pushButton_5->show();
         ui->pushButton_15->show();
         ui->pushButton_16->show();
-
     }
-
-
     if(Mi4==1)
     {
         painter.drawPixmap(rect(), QPixmap("://images/buy_property_bg.jpg"));
@@ -121,7 +126,6 @@ void MainWindow::paintEvent(QPaintEvent *e){
         ui->pushButton_13->show();
         ui->pushButton_14->show();
     }
-
     pa->end();
     delete pa;
 }
@@ -146,7 +150,10 @@ void MainWindow::keyPressEvent(QKeyEvent *e)
     {
          this->play_mode.handlePlayerMove(2,1);
     }
+    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+            movei = rand()%2+1;
     this->repaint();
+    this->delay();
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -206,5 +213,39 @@ void MainWindow::on_pushButton_16_clicked()
 void MainWindow::on_pushButton_17_clicked()
 {
     Mi6=1;
+    this->repaint();
+}
+
+void MainWindow::showworld1(){
+    /*qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+    personi = rand()%3;*/
+    personi = clock()%100;
+
+   //cout<<personi<<endl;
+
+    this->repaint();
+
+}
+
+void MainWindow::showworld2(){
+    fairy1_x = clock()%1500;
+    fairy1_y = clock()%700;
+    fairy2_x = clock()%1000;
+    fairy2_y = clock()%400;
+    fairy3_x = clock()%500;
+    fairy3_y = clock()%200;
+
+    cout<<fairy1_x<<" "<<fairy1_y<<endl<<fairy2_x<<" "<<fairy2_y<<endl<<fairy3_x<<" "<<fairy3_y<<endl;
+
+    this->repaint();
+}
+
+void MainWindow::delay(){
+    clock_t start_time;
+    start_time = clock();
+    while ((clock()- start_time) <0.1 * CLOCKS_PER_SEC)
+    {
+        this->movei = 0;
+    }
     this->repaint();
 }

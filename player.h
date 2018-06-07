@@ -19,11 +19,13 @@ public:
     int getPosX() const{return this->_pos_x;}
     int getPosY() const{return this->_pos_y;}
     int getSIZE() const{return this->SIZE;}
+    int getTurn() const{return this->Turn;}
 
 
 protected:
     int _pos_x, _pos_y;
     int SIZE;
+    int Turn;
 };
 
 #endif // PLAYER_H

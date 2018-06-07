@@ -7,7 +7,7 @@ class Final_player:public Male_player,public Female_player
 {
 public:
     Final_player(){}
-    void show(QPainter * painter);
+    void show(QPainter * painter,int i);
 };
 
 #endif // FINAL_PLAYER_H
