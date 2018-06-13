@@ -11,6 +11,8 @@ public:
     Male_player(){}
     ~Male_player(){}
     void show(QPainter * painter, int i);
+    void show_handskill(QPainter * painter, int i);
+    //void propertyskill();
 };
 
 #endif // MALE_PLAYER_H

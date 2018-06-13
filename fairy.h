@@ -2,6 +2,7 @@
 #define FAIRY_H
 #include <QImage>
 #include <QPainter>
+#include "skill.h"
 using namespace std;
 
 class Fairy
@@ -11,18 +12,23 @@ public:
     virtual ~Fairy(){}
 
     void show(QPainter * painter);
-    void move(int direction, int steps=1);
+
+    void move1(int direction, int steps=25);
+    void move2(int direction, int steps=25);
+    void move3(int direction, int steps=25);
 
     void setPosX(int x){this->_pos_x=x;}
     void setPosY(int y){this->_pos_y=y;}
     int getPosX() const{return this->_pos_x;}
     int getPosY() const{return this->_pos_y;}
     int getblood_volume() const { return this->blood_volume; }
-    void setblood_volume(int _blood_volume){ blood_volume = _blood_volume; }
+    Skill& getSkill() { return this->fairy_skill;}
+    void setblood_volume(){ blood_volume = blood_volume-20; }
 
-private:
+protected:
     int _pos_x, _pos_y;
     int blood_volume;
+    Skill fairy_skill;
 };
 
 #endif // FAIRY_H

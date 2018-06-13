@@ -15,11 +15,8 @@ void RPGObj::initObj(string type)
            this->_eatable=true;
        }
 
-
-
-
     //TODO 所支持的对象类型应定义为枚举
-   /*if (type.compare("white_leaf")==0){this->_coverable = false;this->_eatable = false;}
+   if (type.compare("white_leaf")==0){this->_coverable = false;this->_eatable = false;}
         else if (type.compare("green_leaf")==0){this->_coverable = false;this->_eatable = false;}
         else if (type.compare("yellow_leaf")==0){this->_coverable = false;this->_eatable = false;}
 
@@ -127,7 +124,7 @@ void RPGObj::initObj(string type)
         else if (type.compare("metal_fence")==0){this->_coverable = false;this->_eatable = false;}
         else if (type.compare("wooden_fence_door")==0){this->_coverable = false;this->_eatable = false;}
         else if (type.compare("wooden_fence")==0){this->_coverable = false;this->_eatable = false;}
-       else{
+       /*else{
         //TODO 应由专门的错误日志文件记录
         cout<<"invalid ICON type."<<endl;
         return;

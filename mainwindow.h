@@ -25,7 +25,6 @@ public:
     void paintEvent(QPaintEvent *e);
     static int getMi1(){return Mi1;}
     void keyPressEvent(QKeyEvent *);
-    void delay();
 
 private slots:
     void on_pushButton_clicked();
@@ -46,18 +45,41 @@ private slots:
 
     void on_pushButton_17_clicked();
 
+    void on_pushButton_18_clicked();
+
+    void on_pushButton_7_clicked();
+
+    void on_pushButton_8_clicked();
+
+    void on_pushButton_9_clicked();
+
+    void on_pushButton_10_clicked();
+
+    void on_pushButton_11_clicked();
+
+    void on_pushButton_12_clicked();
+
+    void on_pushButton_13_clicked();
+
+    void on_pushButton_14_clicked();
+
+    void turn_battle();
+
 protected slots:
     void showworld1();
-    void showworld2();
+    void movedFairy();
+    void recoverBoss();
+    void setSkillPlace();
+    void movedSkill();
 private:
     Ui::MainWindow *ui;
     World1 role_choose_mode;
     World2 play_mode;
     World3 property_mode;
+    QTimer *timer1;
     QTimer *timer2;
     int personi;
-    int movei;
-    int fairy1_x,fairy1_y,fairy2_x,fairy2_y,fairy3_x,fairy3_y;
+    static int movei;
     static int Mi0;
     static int Mi1 ;
     static int Mi2 ;
@@ -65,9 +87,13 @@ private:
     static int Mi4 ;
     static int Mi5 ;
     static int Mi6 ;
+    static int Mi7 ;
     static string map_File;
+    static string border_File;
     static string rebuild_map_File;
     static string determine_File;
+    static string property_File;
+    void delay();
 
 };
 

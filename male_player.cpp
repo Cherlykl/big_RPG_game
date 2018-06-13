@@ -1,44 +1,103 @@
 #include "male_player.h"
+#include <ctime>
+#include <string>
+#include <iostream>
+using namespace std;
 
 void Male_player::show(QPainter * painter, int i)
 {
-   /*QRect target(10.0, 20.0, 80.0, 60.0); //建立目标矩形，该区域是显示图像的目的地
-    QRect source(0.0, 0.0, 70.0, 40.0); //建立源矩形，用来划定来自外部的源图像文件中需要显示的区域
-    QImage image(":/images/myImage.png"); //建立QImage类对象*/
-
-    //painter->drawPixmap(this->_pos_x,this->_pos_y,6*this->SIZE,6*this->SIZE, QPixmap("://images/male_player.png"));
-                       //横坐标，纵坐标，宽，高
-
-    switch (i) {
-            case 0:
-                if (this->getTurn() == 1)
-                    painter->drawPixmap(this->_pos_x,this->_pos_y,4*this->SIZE,6*this->SIZE, QPixmap("://images/pw_stand.png"));
-                else if (this->getTurn() == 2)
-                    painter->drawPixmap(this->_pos_x,this->_pos_y,4*this->SIZE,6*this->SIZE, QPixmap("://images/ps_stand.png"));
-                else if (this->getTurn() == 3)
-                    painter->drawPixmap(this->_pos_x,this->_pos_y,4*this->SIZE,6*this->SIZE, QPixmap("://images/pa_stand.png"));
-                else
-                    painter->drawPixmap(this->_pos_x,this->_pos_y,4*this->SIZE,6*this->SIZE, QPixmap("://images/pd_stand.png"));
-                break;
-            case 1:
-                if (this->getTurn() == 1)
-                    painter->drawPixmap(this->_pos_x,this->_pos_y,4*this->SIZE,6*this->SIZE, QPixmap("://images/pw_run1.png"));
-                else if (this->getTurn() == 2)
-                    painter->drawPixmap(this->_pos_x,this->_pos_y,4*this->SIZE,6*this->SIZE, QPixmap("://images/ps_run1.png"));
-                else if (this->getTurn() == 3)
-                    painter->drawPixmap(this->_pos_x,this->_pos_y,4*this->SIZE,6*this->SIZE, QPixmap("://images/pa_run1.png"));
-                else
-                    painter->drawPixmap(this->_pos_x,this->_pos_y,4*this->SIZE,6*this->SIZE, QPixmap("://images/pd_run1.png"));
-            case 2:
-                if (this->getTurn() == 1)
-                    painter->drawPixmap(this->_pos_x,this->_pos_y,4*this->SIZE,6*this->SIZE, QPixmap("://images/pw_run2.png"));
-                else if (this->getTurn() == 2)
-                    painter->drawPixmap(this->_pos_x,this->_pos_y,4*this->SIZE,6*this->SIZE, QPixmap("://images/ps_run2.png"));
-                else if (this->getTurn() == 3)
-                    painter->drawPixmap(this->_pos_x,this->_pos_y,4*this->SIZE,6*this->SIZE, QPixmap("://images/pa_run2.png"));
-                else
-                    painter->drawPixmap(this->_pos_x,this->_pos_y,4*this->SIZE,6*this->SIZE, QPixmap("://images/pd_run2.png"));
-            default:
-                break;
-            }
+    switch (this->getTurn()) {
+    case 1:
+        switch (i) {
+        case 0:
+            painter->drawPixmap(this->_pos_x,this->_pos_y,3*this->SIZE,4*this->SIZE, QPixmap("://images/pw_stand.png"));
+            break;
+        case 1:
+            painter->drawPixmap(this->_pos_x,this->_pos_y,3*this->SIZE,4*this->SIZE, QPixmap("://images/pw_run1.png"));
+            break;
+        case 2:
+            painter->drawPixmap(this->_pos_x,this->_pos_y,3*this->SIZE,4*this->SIZE, QPixmap("://images/pw_run2.png"));
+            break;
+        default:
+            break;
+        }
+        break;
+    case 2:
+        switch (i) {
+        case 0:
+            painter->drawPixmap(this->_pos_x,this->_pos_y,3*this->SIZE,4*this->SIZE, QPixmap("://images/ps_stand.png"));
+            break;
+        case 1:
+            painter->drawPixmap(this->_pos_x,this->_pos_y,3*this->SIZE,4*this->SIZE, QPixmap("://images/ps_run1.png"));
+            break;
+        case 2:
+            painter->drawPixmap(this->_pos_x,this->_pos_y,3*this->SIZE,4*this->SIZE, QPixmap("://images/ps_run2.png"));
+            break;
+        default:
+            break;
+        }
+        break;
+    case 3:
+        switch (i) {
+        case 0:
+            painter->drawPixmap(this->_pos_x,this->_pos_y,3*this->SIZE,4*this->SIZE, QPixmap("://images/pa_stand.png"));
+            break;
+        case 1:
+            painter->drawPixmap(this->_pos_x,this->_pos_y,3*this->SIZE,4*this->SIZE, QPixmap("://images/pa_run1.png"));
+            break;
+        case 2:
+            painter->drawPixmap(this->_pos_x,this->_pos_y,3*this->SIZE,4*this->SIZE, QPixmap("://images/pa_run2.png"));
+            break;
+        default:
+            break;
+        }
+        break;
+    case 4:
+        switch (i) {
+        case 0:
+            painter->drawPixmap(this->_pos_x,this->_pos_y,3*this->SIZE,4*this->SIZE, QPixmap("://images/pd_stand.png"));
+            break;
+        case 1:
+            painter->drawPixmap(this->_pos_x,this->_pos_y,3*this->SIZE,4*this->SIZE, QPixmap("://images/pd_run1.png"));
+            break;
+        case 2:
+            painter->drawPixmap(this->_pos_x,this->_pos_y,3*this->SIZE,4*this->SIZE, QPixmap("://images/pd_run2.png"));
+            break;
+        default:
+            break;
+        }
+        break;
+    default:
+        break;
+    }
 }
+
+void Male_player::show_handskill(QPainter *painter, int i)
+{
+    switch (i) {
+    case 0:
+        painter->drawPixmap(this->_pos_x,this->_pos_y,3*this->SIZE,4*this->SIZE, QPixmap("://images/pd_stand.png"));
+        break;
+    case 1:
+        painter->drawPixmap(this->_pos_x,this->_pos_y,3*this->SIZE,4*this->SIZE, QPixmap("://images/pl_fight.png"));
+        break;
+    case 2:
+        painter->drawPixmap(this->_pos_x,this->_pos_y,3*this->SIZE,4*this->SIZE, QPixmap("://images/pr_fight.png"));
+        break;
+    default:
+        break;
+    }
+}
+/*
+void Male_player::propertyskill()
+{
+    if (this->haveproperty.compare("神行靴")==0)
+    {
+        this->setSpeed(200);
+    }
+    else if (this->haveproperty.compare("血灵丹")==0)
+    {
+        this->addblood(10);
+    }
+}
+*/

@@ -15,10 +15,9 @@ pair<string,ICON> pairArray[] =
         make_pair("npc2",ICON("npc2",9,7,1,2)),
         make_pair("npc3",ICON("npc3",10,7,1,2)),
         make_pair("npc4",ICON("npc4",13,7,1,2)),
-        make_pair("tomb",ICON("tomb",13,5,3,2))
+        make_pair("tomb",ICON("tomb",13,5,3,2)),
 
-    //王梦蝶
-       /* make_pair("white_leaf",ICON("white_leaf", 0, 1, 1, 1)),
+        make_pair("white_leaf",ICON("white_leaf", 0, 1, 1, 1)),
         make_pair("green_leaf",ICON("green_leaf", 1, 0, 1, 1)),
         make_pair("yellow_leaf",ICON("yellow_leaf", 1, 0, 1, 1)),
 
@@ -125,7 +124,7 @@ pair<string,ICON> pairArray[] =
         make_pair("metal_fence_door",ICON("metal_fence_door", 12, 14, 1, 2)),
         make_pair("metal_fence",ICON("metal_fence", 13, 14, 3, 2)),
         make_pair("wooden_fence_door",ICON("wooden_fence_door", 3, 14, 2, 2)),
-        make_pair("wooden_fence",ICON("wooden_fence", 0, 14, 3, 2))*/
+        make_pair("wooden_fence",ICON("wooden_fence", 0, 14, 3, 2))
 
 };
 

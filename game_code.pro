@@ -23,7 +23,9 @@ SOURCES += main.cpp\
     world1.cpp \
     world2.cpp \
     world3.cpp \
-    fairy.cpp
+    fairy.cpp \
+    skill.cpp \
+    monster.cpp
 
 HEADERS  += mainwindow.h \
     icon.h \
@@ -35,7 +37,9 @@ HEADERS  += mainwindow.h \
     world1.h \
     world2.h \
     world3.h \
-    fairy.h
+    fairy.h \
+    skill.h \
+    monster.h
 
 FORMS    += mainwindow.ui
 

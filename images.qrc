@@ -35,5 +35,17 @@
         <file>images/pw_run2.png</file>
         <file>images/pw_stand.png</file>
         <file>images/map.jpg</file>
+        <file>images/skill8.png</file>
+        <file>images/monster.gif</file>
+        <file>images/skill1.png</file>
+        <file>images/skill2.png</file>
+        <file>images/skill3.png</file>
+        <file>images/skill4.png</file>
+        <file>images/skill5.png</file>
+        <file>images/skill6.png</file>
+        <file>images/skill7.png</file>
+        <file>images/skill9.png</file>
+        <file>images/skill10.png</file>
+        <file>images/battle_bg.jpg</file>
     </qresource>
 </RCC>

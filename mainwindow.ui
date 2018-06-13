@@ -155,7 +155,7 @@ font: 20pt &quot;Agency FB&quot;;</string>
      </rect>
     </property>
     <property name="text">
-     <string>竹音萧：</string>
+     <string>竹音箫：</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_11">
@@ -247,6 +247,19 @@ font: 20pt &quot;Agency FB&quot;;</string>
     </property>
     <property name="text">
      <string>贪婪之地</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_18">
+    <property name="geometry">
+     <rect>
+      <x>1460</x>
+      <y>147</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>离开商店</string>
     </property>
    </widget>
   </widget>

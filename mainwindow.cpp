@@ -8,6 +8,7 @@
 #include <ctime>
 using namespace std;
 
+int MainWindow::movei=0;
 int MainWindow::Mi0 = 0;
 int MainWindow::Mi1 = 0;
 int MainWindow::Mi2 = 0;
@@ -15,9 +16,12 @@ int MainWindow::Mi3 = 0;
 int MainWindow::Mi4 = 0;
 int MainWindow::Mi5 = 0;
 int MainWindow::Mi6 = 0;
+int MainWindow::Mi7 = 0;
 string MainWindow::map_File = "C:\\Users\\lenovo\\Desktop\\coding_homework\\big_RPG_game\\game_code\\map.txt";
+string MainWindow::border_File = "C:\\Users\\lenovo\\Desktop\\coding_homework\\big_RPG_game\\game_code\\border.txt";
 string MainWindow::rebuild_map_File = "C:\\Users\\lenovo\\Desktop\\coding_homework\\big_RPG_game\\game_code\\rebuilt_map.txt";
 string MainWindow::determine_File = "C:\\Users\\lenovo\\Desktop\\coding_homework\\big_RPG_game\\game_code\\determine.txt";
+string MainWindow::property_File = "C:\\Users\\lenovo\\Desktop\\coding_homework\\big_RPG_game\\game_code\\properties.txt";
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -25,10 +29,15 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    timer1 = new QTimer(this);
+    connect(timer1,SIGNAL(timeout()),this,SLOT(recoverBoss()));
+    connect(timer1,SIGNAL(timeout()),this,SLOT(setSkillPlace()));
+    timer1->start(10000);
     timer2 = new QTimer(this);
     connect(timer2,SIGNAL(timeout()),this,SLOT(showworld1()));
-    connect(timer2,SIGNAL(timeout()),this,SLOT(showworld2()));
-    timer2->start(100);
+    connect(timer2,SIGNAL(timeout()),this,SLOT(movedFairy()));
+    connect(timer2,SIGNAL(timeout()),this,SLOT(movedSkill()));
+    timer2->start(10);
 
     ifstream infile(determine_File);
     int flag;
@@ -37,9 +46,13 @@ MainWindow::MainWindow(QWidget *parent) :
         infile>>flag;
     }
     if(flag==0)
+    {
         play_mode.initWorld(map_File);
+        play_mode.initWorld(border_File);
+    }
     else
         play_mode.initWorld(rebuild_map_File);
+
     ui->pushButton->hide();
     ui->pushButton_2->hide();
     ui->pushButton_3->hide();
@@ -56,11 +69,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButton_15->hide();
     ui->pushButton_16->hide();
     ui->pushButton_17->hide();
+    ui->pushButton_18->hide();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete timer1;
     delete timer2;
 }
 
@@ -79,14 +94,14 @@ void MainWindow::paintEvent(QPaintEvent *e){
             ui->pushButton_2->show();
             flag++;
         }
-
-
-                role_choose_mode.show(pa,Mi1,personi);
+        role_choose_mode.show(pa,Mi1,personi);
     }
-    if(Mi2==1){
+    if(Mi2==1)
+    {
         static int flag1=0;
         painter.drawPixmap(rect(), QPixmap("://images/place_choose_bg.jpg"));
-        if(flag1==0){
+        if(flag1==0)
+        {
             ui->pushButton_3->show();
             flag1++;
         }
@@ -97,20 +112,33 @@ void MainWindow::paintEvent(QPaintEvent *e){
         ui->pushButton_17->show();
 
     }
-    if(Mi6==1)
+    if(Mi6==1)                          //娓告垙涓栫晫
     {
+
         ui->pushButton_17->hide();
         painter.drawPixmap(rect(), QPixmap("://images/map.jpg"));
-        play_mode.show(pa,movei);
+
+        play_mode.showcruise(pa,movei);
         ui->pushButton_5->show();
         ui->pushButton_15->show();
         ui->pushButton_16->show();
+
+        //change
+        if ((this->play_mode.getPlayerX()>=1450)&&(this->play_mode.getPlayerX())<=1650&&
+                (this->play_mode.getPlayerY()<=652)&&(this->play_mode.getPlayerY()>=552))
+             this->turn_battle();
+        }
+    if (Mi7 == 1)
+    {
+         painter.drawPixmap(rect(), QPixmap("://images/battle_bg.jpg"));
+         play_mode.showbattle(pa, movei);
     }
     if(Mi4==1)
     {
         painter.drawPixmap(rect(), QPixmap("://images/buy_property_bg.jpg"));
         ui->pushButton_5->hide();
         ui->pushButton_6->show();
+        ui->pushButton_18->show();
     }
     if(Mi5==1)
     {
@@ -125,34 +153,52 @@ void MainWindow::paintEvent(QPaintEvent *e){
         ui->pushButton_12->show();
         ui->pushButton_13->show();
         ui->pushButton_14->show();
+        ui->pushButton_18->show();
     }
     pa->end();
     delete pa;
 }
 
-
 void MainWindow::keyPressEvent(QKeyEvent *e)
 {
     //direction = 1,2,3,4 for 上下左右
+
+    static int mm;
+    movei = mm%2+1;
     if(e->key() == Qt::Key_A)
     {
+        mm++;
         this->play_mode.handlePlayerMove(3,1);
+        this->repaint();
     }
     else if(e->key() == Qt::Key_D)
     {
+        mm++;
         this->play_mode.handlePlayerMove(4,1);
+        this->repaint();
     }
     else if(e->key() == Qt::Key_W)
     {
+        mm++;
         this->play_mode.handlePlayerMove(1,1);
+        this->repaint();
     }
     else if(e->key() == Qt::Key_S)
     {
-         this->play_mode.handlePlayerMove(2,1);
+        mm++;
+        this->play_mode.handlePlayerMove(2,1);
+        this->repaint();
     }
-    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
-            movei = rand()%2+1;
-    this->repaint();
+    else if(e->key() == Qt::Key_U)
+    {
+        mm++;
+        this->play_mode.handlePlayerMove(5,1);
+        this->repaint();
+    }
+    else if (e->key() == Qt::Key_I)
+    {
+
+    }
     this->delay();
 }
 
@@ -164,6 +210,7 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_pushButton_2_clicked()
 {
+    Mi0=0;
     Mi2=1;
     ui->pushButton->hide();
     ui->pushButton_2->hide();
@@ -172,6 +219,7 @@ void MainWindow::on_pushButton_2_clicked()
 
 void MainWindow::on_pushButton_3_clicked()
 {
+    Mi2=0;
     Mi3=1;
     ui->pushButton_3->hide();
     this->repaint();
@@ -212,40 +260,165 @@ void MainWindow::on_pushButton_16_clicked()
 
 void MainWindow::on_pushButton_17_clicked()
 {
+    Mi3=0;
     Mi6=1;
     this->repaint();
 }
 
 void MainWindow::showworld1(){
-    /*qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
-    personi = rand()%3;*/
     personi = clock()%100;
-
-   //cout<<personi<<endl;
-
     this->repaint();
-
 }
 
-void MainWindow::showworld2(){
-    fairy1_x = clock()%1500;
-    fairy1_y = clock()%700;
-    fairy2_x = clock()%1000;
-    fairy2_y = clock()%400;
-    fairy3_x = clock()%500;
-    fairy3_y = clock()%200;
+void MainWindow::movedFairy(){
+    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+    int i = rand()%60;
+    if(i<15)
+    {
+        play_mode.handleFairyMove(1);
+        play_mode.handleMonsterMove(1);
+    }
+    if(i>=15&&i<30)
+    {
+        play_mode.handleFairyMove(2);
+        play_mode.handleMonsterMove(2);
+    }
+    if(i>=30&&i<45)
+    {
+        play_mode.handleFairyMove(3);
+        play_mode.handleMonsterMove(3);
+    }
+    if(i>=45)
+    {
+        play_mode.handleFairyMove(4);
+        play_mode.handleMonsterMove(4);
+    }
+    this->repaint();
+}
 
-    cout<<fairy1_x<<" "<<fairy1_y<<endl<<fairy2_x<<" "<<fairy2_y<<endl<<fairy3_x<<" "<<fairy3_y<<endl;
+void MainWindow::recoverBoss()
+{
+    if((play_mode.getBoss().getblood_volume())+5<=100)
+        play_mode.getBoss().recoverblood_volume();
+}
 
+void MainWindow::setSkillPlace()
+{
+    play_mode.getFairy1().getSkill().setStartX(play_mode.getFairy1().getPosX());
+    play_mode.getFairy1().getSkill().setStartY(play_mode.getFairy1().getPosY());
+    play_mode.getFairy1().getSkill().setEndX(play_mode.getPlayer().getPosX());
+    play_mode.getFairy1().getSkill().setEndY(play_mode.getPlayer().getPosY());
+
+    play_mode.getFairy1().getSkill().setPosX();
+    play_mode.getFairy1().getSkill().setPosY();
+    play_mode.getFairy1().getSkill().setSteps();
+
+    play_mode.getFairy2().getSkill().setStartX(play_mode.getFairy2().getPosX());
+    play_mode.getFairy2().getSkill().setStartY(play_mode.getFairy2().getPosY());
+    play_mode.getFairy2().getSkill().setEndX(play_mode.getPlayer().getPosX());
+    play_mode.getFairy2().getSkill().setEndY(play_mode.getPlayer().getPosY());
+
+    play_mode.getFairy2().getSkill().setPosX();
+    play_mode.getFairy2().getSkill().setPosY();
+    play_mode.getFairy2().getSkill().setSteps();
+
+    play_mode.getFairy3().getSkill().setStartX(play_mode.getFairy3().getPosX());
+    play_mode.getFairy3().getSkill().setStartY(play_mode.getFairy3().getPosY());
+    play_mode.getFairy3().getSkill().setEndX(play_mode.getPlayer().getPosX());
+    play_mode.getFairy3().getSkill().setEndY(play_mode.getPlayer().getPosY());
+
+    play_mode.getFairy3().getSkill().setPosX();
+    play_mode.getFairy3().getSkill().setPosY();
+    play_mode.getFairy3().getSkill().setSteps();
+}
+
+void MainWindow::movedSkill()
+{
+    play_mode.getFairy1().getSkill().setFlag();
+    play_mode.getFairy1().getSkill().move();
+    play_mode.getFairy2().getSkill().setFlag();
+    play_mode.getFairy2().getSkill().move();
+    play_mode.getFairy3().getSkill().setFlag();
+    play_mode.getFairy3().getSkill().move();
     this->repaint();
 }
 
 void MainWindow::delay(){
     clock_t start_time;
     start_time = clock();
-    while ((clock()- start_time) <0.1 * CLOCKS_PER_SEC)
+    while ((clock()- start_time) <0.05 * CLOCKS_PER_SEC)
     {
         this->movei = 0;
     }
     this->repaint();
+}
+
+void MainWindow::on_pushButton_7_clicked()
+{
+    this->property_mode.addproperty("斩灵刀", property_File );
+}
+
+void MainWindow::on_pushButton_8_clicked()
+{
+    this->property_mode.addproperty("轮回镖", property_File);
+}
+
+void MainWindow::on_pushButton_9_clicked()
+{
+    this->property_mode.addproperty("虎魄杖", property_File);
+}
+
+void MainWindow::on_pushButton_10_clicked()
+{
+
+    this->property_mode.addproperty("竹音箫", property_File);
+}
+
+void MainWindow::on_pushButton_11_clicked()
+{
+    this->property_mode.addproperty("花鸾扇", property_File);
+}
+
+void MainWindow::on_pushButton_12_clicked()
+{
+    this->property_mode.addproperty("伏羲琴", property_File);
+}
+
+void MainWindow::on_pushButton_13_clicked()
+{
+    this->property_mode.addproperty("神行靴", property_File);
+}
+
+void MainWindow::on_pushButton_14_clicked()
+{
+    this->property_mode.addproperty("血灵丹", property_File);
+}
+
+void MainWindow::on_pushButton_18_clicked()
+{
+    Mi4 = 0;
+    Mi5 = 0;
+    Mi6 = 1;
+    ui->pushButton_6->hide();
+    ui->pushButton_7->hide();
+    ui->pushButton_8->hide();
+    ui->pushButton_9->hide();
+    ui->pushButton_10->hide();
+    ui->pushButton_11->hide();
+    ui->pushButton_12->hide();
+    ui->pushButton_13->hide();
+    ui->pushButton_14->hide();
+    ui->pushButton_18->hide();
+    this->repaint();
+}
+
+void MainWindow::turn_battle()
+{
+    Mi6 = 0;
+    Mi7 = 1;
+    this->play_mode.setPlayerX(50);
+    this->play_mode.setPlayerY(50);
+    ui->pushButton_5->hide();
+    ui->pushButton_15->hide();
+    ui->pushButton_16->hide();
 }
