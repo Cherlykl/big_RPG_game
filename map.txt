@@ -1,4 +1,4 @@
-finalplayer 50 1
+finalplayer 1280 600
 fairy 200 200
 fairy 245 230
 fairy 290 200

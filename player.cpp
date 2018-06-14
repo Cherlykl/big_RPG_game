@@ -1,7 +1,5 @@
 #include "player.h"
 
-//const string Player::propertyfile = "C:\\Qt\\program\\game_code\\properties.txt";
-
 void Player::move(int direction, int steps){
     switch (direction){
         case 1:

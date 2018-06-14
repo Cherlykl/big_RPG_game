@@ -71,6 +71,8 @@ protected slots:
     void recoverBoss();
     void setSkillPlace();
     void movedSkill();
+    void recoverPlayerHP();
+    void canSpeedUP();
 private:
     Ui::MainWindow *ui;
     World1 role_choose_mode;

@@ -11,6 +11,7 @@
 #include "fairy.h"
 #include "skill.h"
 #include "monster.h"
+#include "property.h"
 
 class World2 : public World1
 {
@@ -31,16 +32,18 @@ public:
     void handleMonsterMove(int direction);
     void rebuildWorld();
 
-    void setPlayerX(int x) {this->myplayer.setPosX(x);}
-    void setPlayerY(int y) {this->myplayer.setPosY(y);}
-    int getPlayerX(){return myplayer.getPosX();}
-    int getPlayerY(){return myplayer.getPosY();}
-
     Monster& getBoss(){ return this->boss; }
     Final_player& getPlayer(){return this->myplayer; }
     Fairy& getFairy1(){return this->enemy_fairy[1];}
     Fairy& getFairy2(){return this->enemy_fairy[4];}
     Fairy& getFairy3(){return this->enemy_fairy[7];}
+
+    int getHP(){return myplayer.getHP();}
+    void setHP(int hp){myplayer.setHP(hp);}
+    int getMoney(){return myplayer.getMoney();}
+    void setMoney(int money){myplayer.setMoney(money);}
+    friend bool Middle(int a,int b,int c);
+
 private:
     vector<RPGObj> _objs;
     Final_player myplayer;

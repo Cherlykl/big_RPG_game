@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     world3.cpp \
     fairy.cpp \
     skill.cpp \
-    monster.cpp
+    monster.cpp \
+    property.cpp
 
 HEADERS  += mainwindow.h \
     icon.h \
@@ -39,7 +40,8 @@ HEADERS  += mainwindow.h \
     world3.h \
     fairy.h \
     skill.h \
-    monster.h
+    monster.h \
+    property.h
 
 FORMS    += mainwindow.ui
 

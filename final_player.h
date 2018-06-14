@@ -6,9 +6,11 @@
 class Final_player:public Male_player,public Female_player
 {
 public:
-    Final_player(){}
+    Final_player(){this->HP = 100; this->Money = 0;}
     void show(QPainter * painter,int i);
     void show_handskill(QPainter * painter, int i);
+
+    void show_propertyskill(QPainter * painter,int i);
 };
 
 #endif // FINAL_PLAYER_H

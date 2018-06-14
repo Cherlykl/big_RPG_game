@@ -13,15 +13,21 @@ void Monster::move(int direction, int steps)
                 this->_pos_y -= steps;
             break;
         case 2:
-            if(_pos_y<800)
+            if((_pos_x>=1200)&&(_pos_y<600))
+            {
+                this->_pos_x -= steps;
                 this->_pos_y += steps;
+            }
             break;
         case 3:
-            if(_pos_x<800)
+            if((_pos_x<1500)&&(_pos_y<600))
+            {
+                this->_pos_x += steps;
                 this->_pos_y += steps;
+            }
             break;
         case 4:
-            if(_pos_x>=100)
+            if(_pos_y>=100)
                 this->_pos_y -= steps;
             break;
     }

@@ -4,9 +4,16 @@
 #include <iostream>
 using namespace std;
 
+Male_player::Male_player()
+{
+    punch.setSize(2);
+}
+
 void Male_player::show(QPainter * painter, int i)
 {
-    switch (this->getTurn()) {
+    int t = this->getTurn();
+    if (t>=6) t=4;
+    switch (t) {
     case 1:
         switch (i) {
         case 0:
@@ -73,31 +80,76 @@ void Male_player::show(QPainter * painter, int i)
 }
 
 void Male_player::show_handskill(QPainter *painter, int i)
-{
+{  
+    punch.setStartX(this->_pos_x-30);
+    punch.setEndX(this->_pos_x-30);
+    punch.setPosX();
+    punch.setStartY(this->_pos_y+70);
+    punch.setEndY(this->_pos_y+70);
+    punch.setPosY();
+
     switch (i) {
     case 0:
         painter->drawPixmap(this->_pos_x,this->_pos_y,3*this->SIZE,4*this->SIZE, QPixmap("://images/pd_stand.png"));
         break;
     case 1:
+        punch.show(painter,100,2);
         painter->drawPixmap(this->_pos_x,this->_pos_y,3*this->SIZE,4*this->SIZE, QPixmap("://images/pl_fight.png"));
         break;
     case 2:
+        punch.show(painter,100,2);
         painter->drawPixmap(this->_pos_x,this->_pos_y,3*this->SIZE,4*this->SIZE, QPixmap("://images/pr_fight.png"));
         break;
     default:
         break;
     }
 }
-/*
-void Male_player::propertyskill()
+
+void Male_player::show_propertyskill(QPainter * painter,int i)
 {
-    if (this->haveproperty.compare("神行靴")==0)
+    this->prop[i].setpos(this->_pos_x+160,this->_pos_y+100);
+    this->prop[i].setSIZE(10);
+
+    //this->prop[i].getSkill().setStartX(this->_pos_x+210);
+    //this->prop[i].getSkill().setPosX();
+    //this->prop[i].getSkill().setStartY(this->_pos_y+100);
+    //this->prop[i].getSkill().setPosY();
+
+    if (this->prop[i].getname() == Property::tot_name[0])
     {
-        this->setSpeed(200);
+        this->prop[i].getSkill().setSize(6);
     }
-    else if (this->haveproperty.compare("血灵丹")==0)
+    else if (this->prop[i].getname() == Property::tot_name[1])
     {
+        this->prop[i].getSkill().setSize(11);
+    }
+    else if (this->prop[i].getname() == Property::tot_name[2])
+    {
+        this->prop[i].getSkill().setSize(4);
+    }
+    else if (this->prop[i].getname() == Property::tot_name[3])
+    {
+        this->prop[i].getSkill().setSize(5);
+    }
+    else if (this->prop[i].getname() == Property::tot_name[4])
+    {
+        this->prop[i].getSkill().setSize(9);
+    }
+    else if (this->prop[i].getname() == Property::tot_name[5])
+    {
+        this->prop[i].getSkill().setSize(5);
+    }
+    else if (this->prop[i].getname() == Property::tot_name[6])
+    {
+        this->setSpeed(150);
+    }
+    else if (this->prop[i].getname() == Property::tot_name[7])
+    {
+
         this->addblood(10);
     }
+
+    this->prop[i].show(painter);
 }
-*/
+
+

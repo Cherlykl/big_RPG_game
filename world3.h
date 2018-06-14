@@ -9,11 +9,6 @@ public:
     World3(){}
     ~World3(){}
     void show(QPainter * painter);
-    void addproperty(string newp, string file);
-    //void getproperty(string file);
-
-private:
-    static int props_num;
 };
 
 #endif // WORLD3_H
