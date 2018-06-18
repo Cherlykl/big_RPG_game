@@ -17,6 +17,7 @@ public:
     void setAttackvalue();
     void setpos(int x, int y) {this->_px = x; this->_py = y; }
     void setSIZE(int s) {this->SIZE = s;}
+    void setValue(int v){this->value=v;}
 
     string getname() const {return this->name;}
     int getAttackvalue() const {return this->Attack_value; }
@@ -24,6 +25,7 @@ public:
     int getpy() const {return this->_py; }
     int getSIZE() const {return this->SIZE;}
     Skill& getSkill() {return this->property_skill;}
+    int getValue()const{return this->value;}
 
     static void addproperty(string newp);
     static string getproperty(int i);
@@ -33,6 +35,7 @@ private:
     string name;
     int Attack_value;
     Skill property_skill;
+    int value;
     int _px;
     int _py;
     int SIZE;

@@ -47,5 +47,14 @@
         <file>images/skill9.png</file>
         <file>images/skill10.png</file>
         <file>images/battle_bg.jpg</file>
+        <file>images/dialog.png</file>
+        <file>images/npc0.png</file>
+        <file>images/npc1.png</file>
+        <file>images/npc2.png</file>
+        <file>images/chest.png</file>
+        <file>images/win.png</file>
+        <file>images/end.jpg</file>
+        <file>images/fail_bg.png</file>
+        <file>images/start.jpg</file>
     </qresource>
 </RCC>

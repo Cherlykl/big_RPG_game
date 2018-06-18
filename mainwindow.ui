@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1727</width>
-    <height>1061</height>
+    <width>1836</width>
+    <height>701</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,7 +15,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QMainWindow{
-border-image: url(:/images/welcome_bg.jpg);
+background-image: url(:/images/start.jpg);
 }
 </string>
   </property>
@@ -23,18 +23,21 @@ border-image: url(:/images/welcome_bg.jpg);
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>1220</x>
-      <y>550</y>
-      <width>101</width>
-      <height>61</height>
+      <x>1210</x>
+      <y>620</y>
+      <width>201</width>
+      <height>101</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(0, 255, 255);
-font: 20pt &quot;Agency FB&quot;;</string>
+     <string notr="true">font: 75 24pt &quot;Jokerman&quot;;
+color: rgb(170, 0, 0);</string>
     </property>
     <property name="text">
      <string>next</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
@@ -42,237 +45,364 @@ font: 20pt &quot;Agency FB&quot;;</string>
      <rect>
       <x>920</x>
       <y>780</y>
-      <width>141</width>
-      <height>61</height>
+      <width>191</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(0, 255, 255);
-font: 20pt &quot;Agency FB&quot;;</string>
+     <string notr="true">font: 75 18pt &quot;Jokerman&quot;;
+color: rgb(170, 0, 0);
+background:transparent;</string>
     </property>
     <property name="text">
      <string>choose</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>290</y>
-      <width>141</width>
-      <height>61</height>
+      <x>370</x>
+      <y>260</y>
+      <width>281</width>
+      <height>111</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;
+font: 75 12pt &quot;Agency FB&quot;;
+border-image: url(:/images/gate1_bg.png);
+color: rgb(255, 255, 255);</string>
+    </property>
     <property name="text">
-     <string>关卡1</string>
+     <string>LEVEL 1 贪婪之地</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>930</x>
-      <y>490</y>
-      <width>151</width>
+      <x>860</x>
+      <y>610</y>
+      <width>251</width>
       <height>51</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;
+font: 75 14pt &quot;Jokerman&quot;;
+color: rgb(255, 255, 255);</string>
+    </property>
     <property name="text">
-     <string>开始</string>
+     <string>CONTINUE</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_5">
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>60</y>
+      <x>1740</x>
+      <y>80</y>
       <width>131</width>
       <height>61</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font: 12pt &quot;Adobe 黑体 Std R&quot;;
+color: rgb(255, 0, 0);
+background:transparent;
+</string>
+    </property>
     <property name="text">
      <string>商店</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_6">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>590</y>
+      <x>650</x>
+      <y>610</y>
       <width>151</width>
-      <height>51</height>
+      <height>81</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 14pt &quot;Adobe Devanagari&quot;;
+color: rgb(170, 0, 0);
+border-image: url(:/images/property7.png);</string>
     </property>
     <property name="text">
      <string>购买商品</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_7">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>310</y>
-      <width>221</width>
+      <x>130</x>
+      <y>330</y>
+      <width>291</width>
       <height>101</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 11pt &quot;Adobe Gothic Std B&quot;;
+color: rgb(255, 255, 255);</string>
+    </property>
     <property name="text">
-     <string>斩灵刀：</string>
+     <string>斩灵刀：攻击值 20 价格 10</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_8">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>310</y>
-      <width>221</width>
+      <x>570</x>
+      <y>330</y>
+      <width>351</width>
       <height>101</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 11pt &quot;Adobe Gothic Std B&quot;;
+color: rgb(255, 255, 255);</string>
+    </property>
     <property name="text">
-     <string>轮回镖：</string>
+     <string>轮回镖：攻击值 10 价格 5</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_9">
     <property name="geometry">
      <rect>
-      <x>1050</x>
-      <y>310</y>
+      <x>1070</x>
+      <y>330</y>
       <width>221</width>
       <height>101</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 11pt &quot;Adobe Gothic Std B&quot;;
+color: rgb(255, 255, 255);</string>
+    </property>
     <property name="text">
-     <string>虎魄杖：</string>
+     <string>虎魄杖：攻击值 10 价格 5</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_10">
     <property name="geometry">
      <rect>
-      <x>1500</x>
-      <y>310</y>
-      <width>221</width>
+      <x>1460</x>
+      <y>330</y>
+      <width>291</width>
       <height>101</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 11pt &quot;Adobe Gothic Std B&quot;;
+color: rgb(255, 255, 255);</string>
+    </property>
     <property name="text">
-     <string>竹音箫：</string>
+     <string>竹音箫：攻击值 15 价格 7</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_11">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>790</y>
-      <width>221</width>
+      <x>170</x>
+      <y>810</y>
+      <width>231</width>
       <height>101</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;
+font: 75 11pt &quot;Adobe Gothic Std B&quot;;
+color: rgb(255, 255, 255);</string>
+    </property>
     <property name="text">
-     <string>花鸾扇：</string>
+     <string>花鸾扇：攻击值 10 价格 5</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_12">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>790</y>
+      <x>620</x>
+      <y>810</y>
       <width>221</width>
       <height>101</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 11pt &quot;Adobe Gothic Std B&quot;;
+color: rgb(255, 255, 255);</string>
+    </property>
     <property name="text">
-     <string>伏羲琴：</string>
+     <string>伏羲琴：攻击值 15 价格 7</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_13">
     <property name="geometry">
      <rect>
-      <x>1040</x>
-      <y>790</y>
-      <width>221</width>
+      <x>1030</x>
+      <y>810</y>
+      <width>301</width>
       <height>101</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 11pt &quot;Adobe Gothic Std B&quot;;
+color: rgb(255, 255, 255);</string>
+    </property>
     <property name="text">
-     <string>神行靴：</string>
+     <string>神行靴：功能：提速 价格 15</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_14">
     <property name="geometry">
      <rect>
-      <x>1500</x>
-      <y>790</y>
-      <width>221</width>
+      <x>1460</x>
+      <y>810</y>
+      <width>281</width>
       <height>101</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 11pt &quot;Adobe Gothic Std B&quot;;
+color: rgb(255, 255, 255);</string>
+    </property>
     <property name="text">
-     <string>血灵丹：</string>
+     <string>血灵丹：功能：回血 价格：10</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_15">
     <property name="geometry">
      <rect>
-      <x>1460</x>
-      <y>37</y>
-      <width>101</width>
+      <x>1740</x>
+      <y>10</y>
+      <width>121</width>
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;
+font: 75 10pt &quot;Adobe Gothic Std B&quot;;
+color: rgb(170, 255, 127);</string>
+    </property>
     <property name="text">
      <string>退出并存档</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_16">
     <property name="geometry">
      <rect>
-      <x>1460</x>
-      <y>87</y>
-      <width>101</width>
+      <x>1740</x>
+      <y>50</y>
+      <width>131</width>
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;
+font: 75 11pt &quot;Adobe Caslon Pro Bold&quot;;
+color: rgb(85, 255, 0);</string>
+    </property>
     <property name="text">
      <string>退出不存档</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_17">
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>467</y>
+      <x>690</x>
+      <y>487</y>
       <width>181</width>
       <height>91</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 14pt &quot;Adobe Garamond Pro&quot;;
+color: rgb(255, 255, 255);
+background:transparent;</string>
+    </property>
     <property name="text">
-     <string>贪婪之地</string>
+     <string>点击进入</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_18">
     <property name="geometry">
      <rect>
-      <x>1460</x>
-      <y>147</y>
+      <x>1750</x>
+      <y>200</y>
       <width>111</width>
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;
+font: 75 12pt &quot;Adobe 黑体 Std R&quot;;
+color: rgb(85, 170, 127);</string>
+    </property>
     <property name="text">
      <string>离开商店</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>1100</x>
-      <y>40</y>
+      <x>570</x>
+      <y>20</y>
       <width>71</width>
       <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 12pt &quot;Agency FB&quot;;
+     <string notr="true">font: 75 14pt &quot;Academy Engraved LET&quot;;
 color: rgb(85, 170, 127);</string>
     </property>
     <property name="text">
@@ -282,8 +412,8 @@ color: rgb(85, 170, 127);</string>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>1110</x>
-      <y>110</y>
+      <x>570</x>
+      <y>40</y>
       <width>41</width>
       <height>41</height>
      </rect>
@@ -296,38 +426,201 @@ color: rgb(85, 170, 127);</string>
      <string>HP</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>1180</x>
-      <y>50</y>
-      <width>113</width>
+      <x>650</x>
+      <y>30</y>
+      <width>51</width>
       <height>21</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 14pt &quot;Agency FB&quot;;
+     <string notr="true">font: 75 14pt &quot;Adobe Garamond Pro Bold&quot;;
 color: rgb(85, 170, 127);</string>
     </property>
     <property name="text">
      <string>0</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>1180</x>
-      <y>120</y>
-      <width>113</width>
+      <x>650</x>
+      <y>50</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 14pt &quot;Adobe Garamond Pro Bold&quot;;
+color: rgb(0, 170, 127);</string>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_19">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>50</y>
+      <width>311</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/images/dialog.png);
+color: rgb(255, 255, 255);
+font: 75 11pt &quot;Adobe Gothic Std B&quot;;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>60</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 10pt &quot;Academy Engraved LET&quot;;
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>请点击我</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_20">
+    <property name="geometry">
+     <rect>
+      <x>1010</x>
+      <y>680</y>
+      <width>281</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/images/dialog.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>1040</x>
+      <y>690</y>
+      <width>231</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 10pt &quot;Adobe Caslon Pro&quot;;
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>请点击我</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_21">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>450</y>
+      <width>281</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/images/dialog.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>460</y>
+      <width>211</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 11pt &quot;Adobe Devanagari&quot;;
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>点击此处</string>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="progressBar">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>30</y>
+      <width>311</width>
       <height>21</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 11pt &quot;Agency FB&quot;;
-color: rgb(85, 170, 127);</string>
+     <string notr="true">color: rgb(255, 0, 0);
+</string>
+    </property>
+    <property name="value">
+     <number>24</number>
+    </property>
+   </widget>
+   <widget class="QProgressBar" name="progressBar_2">
+    <property name="geometry">
+     <rect>
+      <x>1230</x>
+      <y>30</y>
+      <width>311</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 0, 0);
+</string>
+    </property>
+    <property name="value">
+     <number>24</number>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_22">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>640</y>
+      <width>211</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 14pt &quot;Jokerman&quot;;</string>
     </property>
     <property name="text">
-     <string>0</string>
+     <string>END</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
@@ -336,7 +629,7 @@ color: rgb(85, 170, 127);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1727</width>
+     <width>1836</width>
      <height>26</height>
     </rect>
    </property>

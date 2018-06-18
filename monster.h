@@ -12,8 +12,8 @@ public:
     Monster(int _b_v=100){blood_volume = _b_v;}
     ~Monster(){}
     void show(QPainter * painter);
-    void setblood_volume(){ blood_volume = blood_volume-10; }
-    void recoverblood_volume(){ blood_volume = blood_volume+2; }
+    void setblood_volume(int attack_value){ blood_volume -= attack_value; }
+    void recoverblood_volume(){ blood_volume = blood_volume+1; }
     void move(int direction, int steps=25);
 
     Skill& getVersion1() { return this->version1;}

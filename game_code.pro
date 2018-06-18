@@ -26,7 +26,11 @@ SOURCES += main.cpp\
     fairy.cpp \
     skill.cpp \
     monster.cpp \
-    property.cpp
+    property.cpp \
+    chest.cpp \
+    npc.cpp \
+    male_npc.cpp \
+    female_npc.cpp
 
 HEADERS  += mainwindow.h \
     icon.h \
@@ -41,7 +45,11 @@ HEADERS  += mainwindow.h \
     fairy.h \
     skill.h \
     monster.h \
-    property.h
+    property.h \
+    chest.h \
+    npc.h \
+    male_npc.h \
+    female_npc.h
 
 FORMS    += mainwindow.ui
 

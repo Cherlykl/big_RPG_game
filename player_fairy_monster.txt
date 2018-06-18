@@ -1,0 +1,14 @@
+player_blood 90
+player_HP 79
+player_money 19
+player_attackvalue 20
+fairy_blood 0
+fairy_blood 0
+fairy_blood 0
+fairy_blood 100
+fairy_blood 100
+fairy_blood 100
+fairy_blood 100
+fairy_blood 100
+fairy_blood 100
+boss_blood 100

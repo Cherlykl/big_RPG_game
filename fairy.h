@@ -24,6 +24,7 @@ public:
     int getblood_volume() const { return this->blood_volume; }
     Skill& getSkill() { return this->fairy_skill;}
     void setblood_volume(){ blood_volume = blood_volume-20; }
+    void setBlood(int b){this->blood_volume = b;}
 
 protected:
     int _pos_x, _pos_y;

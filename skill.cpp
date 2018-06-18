@@ -1,73 +1,95 @@
 #include "skill.h"
+#include <iostream>
+
+using namespace std;
 
 void Skill::show(QPainter *painter,int range, int tag)
 {
+    this->Area = range;
     if((fabs(end_x-start_x)<range)&&(fabs(end_y-start_y)<range))
     {
         if((fabs(_pos_x-start_x)<range)&&(fabs(_pos_y-start_y)<range))
         {
-            {
-                switch (tag){
-                    case 1:
-                        painter->drawPixmap(this->_pos_x,this->_pos_y, this->length ,this->width, QPixmap("://images/skill1.png"));
-                        break;
-                    case 2:
-                        painter->drawPixmap(this->_pos_x,this->_pos_y, this->length ,this->width, QPixmap("://images/skill2.png"));
-                        break;
-                    case 3:
-                        painter->drawPixmap(this->_pos_x,this->_pos_y, this->length ,this->width, QPixmap("://images/skill3.png"));
-                        break;
-                    case 4:
-                        painter->drawPixmap(this->_pos_x,this->_pos_y, this->length ,this->width, QPixmap("://images/skill4.png"));
-                        break;
-                    case 5:
-                        painter->drawPixmap(this->_pos_x,this->_pos_y, this->length ,this->width, QPixmap("://images/skill5.png"));
-                        break;
-                    case 6:
-                        painter->drawPixmap(this->_pos_x,this->_pos_y, this->length ,this->width, QPixmap("://images/skill6.png"));
-                        break;
-                    case 7:
-                        painter->drawPixmap(this->_pos_x,this->_pos_y, this->length ,this->width, QPixmap("://images/skill7.png"));
-                        break;
-                    case 8:
-                        painter->drawPixmap(this->_pos_x,this->_pos_y, this->length ,this->width, QPixmap("://images/skill8.png"));
-                        break;
-                    case 9:
-                        painter->drawPixmap(this->_pos_x,this->_pos_y, this->length ,this->width, QPixmap("://images/skill9.png"));
-                        break;
-                    case 10:
-                        painter->drawPixmap(this->_pos_x,this->_pos_y, this->length ,this->width, QPixmap("://images/skill10.png"));
-                        break;
-                    case 11:
-                        painter->drawPixmap(this->_pos_x,this->_pos_y, this->length ,this->width, QPixmap("://images/property5.png"));
-                        break;
-                }
+            switch (tag){
+                case 1:
+                    painter->drawPixmap(this->_pos_x,this->_pos_y, this->length ,this->width, QPixmap("://images/skill1.png"));
+                    break;
+                case 2:
+                    painter->drawPixmap(this->_pos_x,this->_pos_y, this->length ,this->width, QPixmap("://images/skill2.png"));
+                    break;
+                case 3:
+                    painter->drawPixmap(this->_pos_x,this->_pos_y, this->length ,this->width, QPixmap("://images/skill3.png"));
+                    break;
+                case 4:
+                    painter->drawPixmap(this->_pos_x,this->_pos_y, this->length ,this->width, QPixmap("://images/skill4.png"));
+                    break;
+                case 5:
+                    painter->drawPixmap(this->_pos_x,this->_pos_y, this->length ,this->width, QPixmap("://images/skill5.png"));
+                    break;
+                case 6:
+                    painter->drawPixmap(this->_pos_x,this->_pos_y, this->length ,this->width, QPixmap("://images/skill6.png"));
+                    break;
+                case 7:
+                    painter->drawPixmap(this->_pos_x,this->_pos_y, this->length ,this->width, QPixmap("://images/skill7.png"));
+                    break;
+                case 8:
+                    painter->drawPixmap(this->_pos_x,this->_pos_y, this->length ,this->width, QPixmap("://images/skill8.png"));
+                    break;
+                case 9:
+                    painter->drawPixmap(this->_pos_x,this->_pos_y, this->length ,this->width, QPixmap("://images/skill9.png"));
+                    break;
+                case 10:
+                    painter->drawPixmap(this->_pos_x,this->_pos_y, this->length ,this->width, QPixmap("://images/skill10.png"));
+                    break;
+                case 11:
+                    painter->drawPixmap(this->_pos_x,this->_pos_y, this->length ,this->width, QPixmap("://images/property5.png"));
+                    break;
             }
         }
     }
 }
 
-void Skill::setFlag(int i)
+void Skill::setFlag(int i,int range)
 {
+
     if(i==0)
-    {
         this->flag = 0;
-    }
     else
     {
-        if((fabs(_pos_x-target_x)<3)&&(fabs(_pos_y-target_y)<3))
-            this->flag=1;
+        if((fabs(_pos_x-target_x)<range)&&(fabs(_pos_y-target_y)<range))
+            this->flag = 1;
+    }
+
+    if (this->flag_blood ==1 )
+    {
+        flag_blood = 0;
+        this->_pos_x += 100;
+        this->_pos_y += 100;
+        return ;
+    }
+    if(i==0)
+        this->flag_blood = 0;
+    else
+    {
+        if((fabs(_pos_x-target_x)<range)&&(fabs(_pos_y-target_y)<range))
+            this->flag_blood = 1;
     }
 
 }
 
 void Skill::move()
 {
-   if(this->flag==0)
-   {
-       this->_pos_x += steps_x;
-       this->_pos_y += steps_y;
-   }
+    if((fabs(end_x-start_x)<Area)&&(fabs(end_y-start_y)<Area))
+    {
+        if((fabs(_pos_x-start_x)<Area)&&(fabs(_pos_y-start_y)<Area))
+        {
+            if(this->flag==0)
+            {
+                this->_pos_x += steps_x;
+                this->_pos_y += steps_y;
+            }
+        }
+    }
 }
 
 void Skill::setSteps()
@@ -92,7 +114,7 @@ void Skill::setAttackValue(int i)
             this->attack_value = 10;
             break;
         case 5:
-            this->attack_value = 15;
+            this->attack_value = 10;
             break;
         case 6:
             this->attack_value = 20;

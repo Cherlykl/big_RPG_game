@@ -24,7 +24,12 @@ public:
     ~MainWindow();
     void paintEvent(QPaintEvent *e);
     static int getMi1(){return Mi1;}
+    static int getMi6(){return Mi6;}
+    static int getMi7(){return Mi7;}
+    static void setMi6(int i) {Mi6 = i;}
+    static void setMi7(int i) {Mi7 = i;}
     void keyPressEvent(QKeyEvent *);
+    void setContent(int i=0) ;
 
 private slots:
     void on_pushButton_clicked();
@@ -65,6 +70,12 @@ private slots:
 
     void turn_battle();
 
+    void on_pushButton_19_clicked();
+
+    void on_pushButton_20_clicked();
+
+    void on_pushButton_21_clicked();
+    void on_pushButton_22_clicked();
 protected slots:
     void showworld1();
     void movedFairy();
@@ -82,6 +93,7 @@ private:
     QTimer *timer2;
     int personi;
     static int movei;
+    static int Mi;
     static int Mi0;
     static int Mi1 ;
     static int Mi2 ;
@@ -92,10 +104,14 @@ private:
     static int Mi7 ;
     static string map_File;
     static string border_File;
-    static string rebuild_map_File;
+    static string rebuild_map_File1;
+    static string rebuild_map_File2;
+    static string variety_File;
     static string determine_File;
     static string property_File;
-    void delay();
+
+    //change by wang
+    void delay(double stime);
 
 };
 

@@ -6,7 +6,8 @@
 class Final_player:public Male_player,public Female_player
 {
 public:
-    Final_player(){this->HP = 100; this->Money = 0;}
+    Final_player(): Player(), Male_player(), Female_player() {}
+
     void show(QPainter * painter,int i);
     void show_handskill(QPainter * painter, int i);
 

@@ -1,6 +1,8 @@
 #include "property.h"
 #include <iostream>
 #include <fstream>
+#include<QDialog>
+#include<QMessageBox>
 using namespace std;
 
 
@@ -56,55 +58,19 @@ void Property::show_pic2(QPainter *painter, int pi)
 
 void Property::show(QPainter *painter)
 {
-    //this->property_skill.setStartX(this->_px+60);
-    //this->property_skill.setPosX();
-    //this->property_skill.setStartY(this->_py+10);
-    //this->property_skill.setPosY();
 
     if (this->name==tot_name[0])
-    {
         painter->drawPixmap(this->_px,this->_py,6*this->SIZE,6*this->SIZE, QPixmap("://images/property1.png"));
-        /*if(this->property_skill.getFlag()==0)
-        {
-            //cout<<"test"<<endl;
-            this->property_skill.show(painter,1800,6);
-        }*/
-
-    }
     else if (this->name==tot_name[1])
-    {
         painter->drawPixmap(this->_px,this->_py,6*this->SIZE,6*this->SIZE, QPixmap("://images/property5.png"));
-        /*if(this->property_skill.getFlag()==0)
-            this->property_skill.show(painter,1800,11);*/
-    }
     else if (this->name==tot_name[2])
-    {
         painter->drawPixmap(this->_px,this->_py,6*this->SIZE,6*this->SIZE, QPixmap("://images/property4.png"));
-        /*if(this->property_skill.getFlag()==0)
-            this->property_skill.show(painter,1800,4);*/
-    }
     else if (this->name==tot_name[3])
-    {
         painter->drawPixmap(this->_px,this->_py,6*this->SIZE,6*this->SIZE, QPixmap("://images/property6.png"));
-        /*if(this->property_skill.getFlag()==0)
-            this->property_skill.show(painter,1800,5);*/
-    }
     else if (this->name==tot_name[4])
-    {
         painter->drawPixmap(this->_px,this->_py,6*this->SIZE,6*this->SIZE, QPixmap("://images/property3.png"));
-        /*if(this->property_skill.getFlag()==0)
-            this->property_skill.show(painter,1800,9);*/
-    }
     else if (this->name==tot_name[5])
-    {
         painter->drawPixmap(this->_px,this->_py,6*this->SIZE,6*this->SIZE, QPixmap("://images/property8.png"));
-        /*if(this->property_skill.getFlag()==0)
-            this->property_skill.show(painter,1800,5);*/
-    }
-    /*else if (this->name==tot_name[6])
-        painter->drawPixmap(this->_px,this->_py,6*this->SIZE,6*this->SIZE, QPixmap("://images/property9.png"));
-    else if (this->name==tot_name[7])
-        painter->drawPixmap(this->_px,this->_py,6*this->SIZE,6*this->SIZE, QPixmap("://images/property12.png"));*/
 }
 
 void Property::addproperty(string newp)
@@ -120,8 +86,19 @@ void Property::addproperty(string newp)
         props_num++;
         proper<<newp<<"\n";
     }
-    else
-        cout<<"The backpack is full."<<endl;
+    else{
+        // cout<<"The backpack is full."<<endl;
+
+        QDialog *dialog=new QDialog;
+        dialog->resize(1500,1000);
+
+        dialog->setStyleSheet("background-image:url(://images/black_bg.jpg);color: rgb(255, 255, 255);");
+        QMessageBox::information(dialog,"警告","The backpack is full.",QMessageBox::Ok);
+        dialog->setWindowFlags(Qt::FramelessWindowHint);
+         cout<<"The backpack is full."<<endl;
+        delete dialog;
+    }
+
     proper.close();
 }
 
@@ -184,11 +161,7 @@ void Property::setAttackvalue()
          this->Attack_value = property_skill.getAttackValue();
      }
      else if (this->name==tot_name[6])
-     {
          this->Attack_value = 0;
-     }
      else if (this->name==tot_name[7])
-     {
          this->Attack_value = 0;
-     }
 }

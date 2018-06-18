@@ -12,13 +12,16 @@
 #include "skill.h"
 #include "monster.h"
 #include "property.h"
-
+#include "npc.h"
+#include"male_npc.h"
+#include"female_npc.h"
+#include"chest.h"
 class World2 : public World1
 {
 public:
     World2(){}
     ~World2(){}
-    void initWorld(string mapFile);
+    void initWorld(string mapFile, int tag);
         //输入的文件中定义了初始状态下游戏世界有哪些对象，出生点在哪
         /*e.g.
            player 5 5
@@ -31,6 +34,8 @@ public:
     void handleFairyMove(int direction);
     void handleMonsterMove(int direction);
     void rebuildWorld();
+
+    void change_blood();                                      //change by wang
 
     Monster& getBoss(){ return this->boss; }
     Final_player& getPlayer(){return this->myplayer; }
@@ -49,7 +54,9 @@ private:
     Final_player myplayer;
     Fairy enemy_fairy[9];
     Monster boss;
-
+    Male_npc male_npc;
+    Female_npc female_npc;
+    Chest chest[3];
 };
 
 #endif // WORLD2_H

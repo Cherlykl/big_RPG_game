@@ -20,3 +20,12 @@ void Player::move(int direction, int steps){
             break;
     }
 }
+
+//change by wang
+int Player::setp_flag(int t_x, int t_y)
+{
+    int i=0;
+    if ((fabs(this->_pos_x+64-t_x)<=30)&&(fabs(this->_pos_y+64-t_y)<=30))
+        i = 1;
+     return i;
+}

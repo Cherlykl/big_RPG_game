@@ -9,10 +9,11 @@ Male_player::Male_player()
     punch.setSize(2);
 }
 
+ //change by wang
 void Male_player::show(QPainter * painter, int i)
 {
     int t = this->getTurn();
-    if (t>=6) t=4;
+    if ((t>5)&&(t<10)) t=6;
     switch (t) {
     case 1:
         switch (i) {
@@ -74,6 +75,21 @@ void Male_player::show(QPainter * painter, int i)
             break;
         }
         break;
+    case 6:
+        painter->drawPixmap(this->_pos_x,this->_pos_y,3*this->SIZE,4*this->SIZE, QPixmap("://images/pd_stand.png"));
+        break;
+    case 10:
+        switch (i) {
+        case 0:
+            painter->drawPixmap(this->_pos_x,this->_pos_y,3*this->SIZE,4*this->SIZE, QPixmap("://images/pd_stand.png"));
+            break;
+        case 1:
+            painter->drawPixmap(this->_pos_x,this->_pos_y+80,5*this->SIZE,3*this->SIZE, QPixmap("://images/pdied.png"));
+            break;
+        default:
+            break;
+        }
+        break;
     default:
         break;
     }
@@ -105,15 +121,11 @@ void Male_player::show_handskill(QPainter *painter, int i)
     }
 }
 
+ //change by wang
 void Male_player::show_propertyskill(QPainter * painter,int i)
 {
     this->prop[i].setpos(this->_pos_x+160,this->_pos_y+100);
     this->prop[i].setSIZE(10);
-
-    //this->prop[i].getSkill().setStartX(this->_pos_x+210);
-    //this->prop[i].getSkill().setPosX();
-    //this->prop[i].getSkill().setStartY(this->_pos_y+100);
-    //this->prop[i].getSkill().setPosY();
 
     if (this->prop[i].getname() == Property::tot_name[0])
     {
@@ -143,12 +155,6 @@ void Male_player::show_propertyskill(QPainter * painter,int i)
     {
         this->setSpeed(150);
     }
-    else if (this->prop[i].getname() == Property::tot_name[7])
-    {
-
-        this->addblood(10);
-    }
-
     this->prop[i].show(painter);
 }
 

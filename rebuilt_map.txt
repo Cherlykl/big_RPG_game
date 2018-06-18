@@ -1,9 +1,0 @@
-fruit 8 15
-stone 10 12
-fruit 25 25
-fruit 45 27
-stone 50 28
-stone 59 30
-player 8 6
-player 1 1
-finalplayer 901 501
